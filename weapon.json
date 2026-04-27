@@ -1,0 +1,245 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "weaponBg": "#080c12",
+    "weaponPanel": "#0d131c",
+    "weaponElement": "#121826",
+    "weaponMenu": "#171d2b",
+    "weaponBorder": "#1e2733",
+    "weaponSubtle": "#171d2b",
+    "weaponBlue": "#4fc3f7",
+    "weaponCyan": "#00e5ff",
+    "weaponBright": "#80deea",
+    "weaponDeep": "#0288d1",
+    "weaponDark": "#01579b",
+    "weaponNavy": "#002f6c",
+    "weaponGlow": "#40c4ff",
+    "weaponMuted": "#1e88e5",
+    "textIce": "#e0e8f0",
+    "textDim": "#8090a0",
+    "textBright": "#f0f8ff",
+    "green": "#69f0ae",
+    "yellow": "#ffd54f",
+    "orange": "#ffab40",
+    "red": "#ff5252",
+    "purple": "#ce93d8",
+    "cyan": "#4dd0e1",
+    "stringMint": "#69f0ae",
+    "numberCoral": "#ff8a65",
+    "keywordLavender": "#ce93d8",
+    "typeCyan": "#4dd0e1",
+    "funcGold": "#ffcc80",
+    "commentSlate": "#546e7a",
+    "operatorSteel": "#78909c"
+  },
+  "theme": {
+    "primary": {
+      "dark": "weaponBlue",
+      "light": "weaponBlue"
+    },
+    "secondary": {
+      "dark": "weaponCyan",
+      "light": "weaponCyan"
+    },
+    "accent": {
+      "dark": "weaponBright",
+      "light": "weaponBright"
+    },
+    "error": {
+      "dark": "red",
+      "light": "red"
+    },
+    "warning": {
+      "dark": "yellow",
+      "light": "yellow"
+    },
+    "success": {
+      "dark": "green",
+      "light": "green"
+    },
+    "info": {
+      "dark": "weaponCyan",
+      "light": "weaponCyan"
+    },
+    "text": {
+      "dark": "textIce",
+      "light": "weaponBg"
+    },
+    "textMuted": {
+      "dark": "textDim",
+      "light": "weaponBorder"
+    },
+    "background": {
+      "dark": "weaponBg",
+      "light": "textBright"
+    },
+    "backgroundPanel": {
+      "dark": "weaponPanel",
+      "light": "textIce"
+    },
+    "backgroundElement": {
+      "dark": "weaponElement",
+      "light": "#c0c8d0"
+    },
+    "backgroundMenu": {
+      "dark": "weaponMenu",
+      "light": "#c0c8d0"
+    },
+    "selectedListItemText": {
+      "dark": "weaponBg",
+      "light": "textBright"
+    },
+    "border": {
+      "dark": "weaponBorder",
+      "light": "#8090a0"
+    },
+    "borderActive": {
+      "dark": "weaponCyan",
+      "light": "weaponCyan"
+    },
+    "borderSubtle": {
+      "dark": "weaponSubtle",
+      "light": "#c0c8d0"
+    },
+    "diffAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffContext": {
+      "dark": "weaponDark",
+      "light": "weaponDark"
+    },
+    "diffHunkHeader": {
+      "dark": "weaponDeep",
+      "light": "weaponDeep"
+    },
+    "diffHighlightAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffAddedBg": {
+      "dark": "#0d2818",
+      "light": "#e0f0d8"
+    },
+    "diffRemovedBg": {
+      "dark": "#2d1315",
+      "light": "#f0d8d8"
+    },
+    "diffContextBg": {
+      "dark": "weaponPanel",
+      "light": "textIce"
+    },
+    "diffLineNumber": {
+      "dark": "commentSlate",
+      "light": "#8090a0"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#0d2818",
+      "light": "#e0f0d8"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#2d1315",
+      "light": "#f0d8d8"
+    },
+    "markdownText": {
+      "dark": "textIce",
+      "light": "weaponBg"
+    },
+    "markdownHeading": {
+      "dark": "weaponBright",
+      "light": "weaponDark"
+    },
+    "markdownLink": {
+      "dark": "weaponBlue",
+      "light": "weaponBlue"
+    },
+    "markdownLinkText": {
+      "dark": "weaponGlow",
+      "light": "weaponDeep"
+    },
+    "markdownCode": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownBlockQuote": {
+      "dark": "weaponCyan",
+      "light": "#0288d1"
+    },
+    "markdownEmph": {
+      "dark": "purple",
+      "light": "purple"
+    },
+    "markdownStrong": {
+      "dark": "weaponBright",
+      "light": "weaponDark"
+    },
+    "markdownHorizontalRule": {
+      "dark": "weaponBorder",
+      "light": "#8090a0"
+    },
+    "markdownListItem": {
+      "dark": "textIce",
+      "light": "weaponBg"
+    },
+    "markdownListEnumeration": {
+      "dark": "textDim",
+      "light": "weaponBorder"
+    },
+    "markdownImage": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownImageText": {
+      "dark": "weaponBright",
+      "light": "weaponDark"
+    },
+    "markdownCodeBlock": {
+      "dark": "textIce",
+      "light": "weaponBg"
+    },
+    "syntaxComment": {
+      "dark": "commentSlate",
+      "light": "#8090a0"
+    },
+    "syntaxKeyword": {
+      "dark": "keywordLavender",
+      "light": "keywordLavender"
+    },
+    "syntaxFunction": {
+      "dark": "funcGold",
+      "light": "weaponDeep"
+    },
+    "syntaxVariable": {
+      "dark": "textIce",
+      "light": "weaponBg"
+    },
+    "syntaxString": {
+      "dark": "stringMint",
+      "light": "#4a8c6a"
+    },
+    "syntaxNumber": {
+      "dark": "numberCoral",
+      "light": "numberCoral"
+    },
+    "syntaxType": {
+      "dark": "typeCyan",
+      "light": "typeCyan"
+    },
+    "syntaxOperator": {
+      "dark": "operatorSteel",
+      "light": "weaponBorder"
+    },
+    "syntaxPunctuation": {
+      "dark": "commentSlate",
+      "light": "#8090a0"
+    }
+  }
+}

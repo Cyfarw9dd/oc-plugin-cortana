@@ -1,0 +1,6 @@
+node_modules/
+.opencode/
+.sisyphus/
+package-lock.json
+*.png
+*.png:Zone.Identifier

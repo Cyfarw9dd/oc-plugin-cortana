@@ -1,0 +1,245 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "cortanaBg": "#1d2021",
+    "cortanaPanel": "#282828",
+    "cortanaElement": "#32302f",
+    "cortanaMenu": "#3c3836",
+    "cortanaBorder": "#504945",
+    "cortanaSubtle": "#3c3836",
+    "cortanaBlue": "#83a598",
+    "cortanaCyan": "#8ec07c",
+    "cortanaBright": "#a5c2c6",
+    "cortanaDeep": "#458588",
+    "cortanaDark": "#3d6a7a",
+    "cortanaNavy": "#294d5a",
+    "cortanaGlow": "#7ab0b8",
+    "cortanaMuted": "#5a8a8a",
+    "textWarm": "#ebdbb2",
+    "textMuted": "#a89984",
+    "textBright": "#fbf1c7",
+    "green": "#b8bb26",
+    "yellow": "#fabd2f",
+    "orange": "#fe8019",
+    "red": "#fb4934",
+    "purple": "#d3869b",
+    "aqua": "#8ec07c",
+    "stringGreen": "#b8bb26",
+    "numberOrange": "#fe8019",
+    "keywordBlue": "#83a598",
+    "typePurple": "#d3869b",
+    "funcYellow": "#fabd2f",
+    "commentGray": "#7c6f64",
+    "operatorGray": "#a89984"
+  },
+  "theme": {
+    "primary": {
+      "dark": "cortanaBlue",
+      "light": "cortanaBlue"
+    },
+    "secondary": {
+      "dark": "cortanaCyan",
+      "light": "cortanaCyan"
+    },
+    "accent": {
+      "dark": "cortanaBright",
+      "light": "cortanaBright"
+    },
+    "error": {
+      "dark": "red",
+      "light": "red"
+    },
+    "warning": {
+      "dark": "yellow",
+      "light": "yellow"
+    },
+    "success": {
+      "dark": "green",
+      "light": "green"
+    },
+    "info": {
+      "dark": "cortanaCyan",
+      "light": "cortanaCyan"
+    },
+    "text": {
+      "dark": "textWarm",
+      "light": "cortanaBg"
+    },
+    "textMuted": {
+      "dark": "textMuted",
+      "light": "cortanaBorder"
+    },
+    "background": {
+      "dark": "cortanaBg",
+      "light": "textBright"
+    },
+    "backgroundPanel": {
+      "dark": "cortanaPanel",
+      "light": "textWarm"
+    },
+    "backgroundElement": {
+      "dark": "cortanaElement",
+      "light": "#d5c4a1"
+    },
+    "backgroundMenu": {
+      "dark": "cortanaMenu",
+      "light": "#d5c4a1"
+    },
+    "selectedListItemText": {
+      "dark": "cortanaBg",
+      "light": "textBright"
+    },
+    "border": {
+      "dark": "cortanaBorder",
+      "light": "#928374"
+    },
+    "borderActive": {
+      "dark": "cortanaBlue",
+      "light": "cortanaBlue"
+    },
+    "borderSubtle": {
+      "dark": "cortanaSubtle",
+      "light": "#d5c4a1"
+    },
+    "diffAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffContext": {
+      "dark": "cortanaDark",
+      "light": "cortanaDark"
+    },
+    "diffHunkHeader": {
+      "dark": "cortanaDeep",
+      "light": "cortanaDeep"
+    },
+    "diffHighlightAdded": {
+      "dark": "green",
+      "light": "green"
+    },
+    "diffHighlightRemoved": {
+      "dark": "red",
+      "light": "red"
+    },
+    "diffAddedBg": {
+      "dark": "#1d3520",
+      "light": "#f0f0d0"
+    },
+    "diffRemovedBg": {
+      "dark": "#351a1a",
+      "light": "#f0d0d0"
+    },
+    "diffContextBg": {
+      "dark": "cortanaPanel",
+      "light": "textWarm"
+    },
+    "diffLineNumber": {
+      "dark": "commentGray",
+      "light": "#928374"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#1d3520",
+      "light": "#f0f0d0"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#351a1a",
+      "light": "#f0d0d0"
+    },
+    "markdownText": {
+      "dark": "textWarm",
+      "light": "cortanaBg"
+    },
+    "markdownHeading": {
+      "dark": "cortanaBright",
+      "light": "cortanaDark"
+    },
+    "markdownLink": {
+      "dark": "cortanaBlue",
+      "light": "cortanaBlue"
+    },
+    "markdownLinkText": {
+      "dark": "cortanaGlow",
+      "light": "cortanaDeep"
+    },
+    "markdownCode": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownBlockQuote": {
+      "dark": "cortanaBlue",
+      "light": "#689d6a"
+    },
+    "markdownEmph": {
+      "dark": "purple",
+      "light": "purple"
+    },
+    "markdownStrong": {
+      "dark": "cortanaBright",
+      "light": "cortanaDark"
+    },
+    "markdownHorizontalRule": {
+      "dark": "cortanaBorder",
+      "light": "#928374"
+    },
+    "markdownListItem": {
+      "dark": "textWarm",
+      "light": "cortanaBg"
+    },
+    "markdownListEnumeration": {
+      "dark": "textMuted",
+      "light": "cortanaBorder"
+    },
+    "markdownImage": {
+      "dark": "orange",
+      "light": "orange"
+    },
+    "markdownImageText": {
+      "dark": "cortanaBright",
+      "light": "cortanaDark"
+    },
+    "markdownCodeBlock": {
+      "dark": "textWarm",
+      "light": "cortanaBg"
+    },
+    "syntaxComment": {
+      "dark": "commentGray",
+      "light": "#928374"
+    },
+    "syntaxKeyword": {
+      "dark": "keywordBlue",
+      "light": "keywordBlue"
+    },
+    "syntaxFunction": {
+      "dark": "funcYellow",
+      "light": "cortanaDeep"
+    },
+    "syntaxVariable": {
+      "dark": "textWarm",
+      "light": "cortanaBg"
+    },
+    "syntaxString": {
+      "dark": "stringGreen",
+      "light": "#6b8b3a"
+    },
+    "syntaxNumber": {
+      "dark": "numberOrange",
+      "light": "numberOrange"
+    },
+    "syntaxType": {
+      "dark": "typePurple",
+      "light": "typePurple"
+    },
+    "syntaxOperator": {
+      "dark": "operatorGray",
+      "light": "cortanaBorder"
+    },
+    "syntaxPunctuation": {
+      "dark": "commentGray",
+      "light": "#928374"
+    }
+  }
+}
