@@ -3,6 +3,7 @@
 import type { TuiPlugin, TuiPluginModule } from "@opencode-ai/plugin/tui"
 import { CortanaLogo } from "./logo"
 import { CortanaContext } from "./context"
+import { SidebarO } from "./sidebar-o"
 
 const id = "cortana"
 
@@ -28,6 +29,8 @@ const tui: TuiPlugin = async (api, options) => {
     api.kv.set("cortana.booted", true)
   }
 
+  const sidebar = bool(opts?.sidebar, true)
+
   await api.plugins.deactivate("internal:sidebar-context")
 
   api.slots.register({
@@ -38,20 +41,43 @@ const tui: TuiPlugin = async (api, options) => {
     },
   })
 
-  api.slots.register({
-    order: 50,
-    slots: {
-      sidebar_content(ctx, input) {
-        return (
-          <CortanaContext
-            theme={ctx.theme.current}
-            api={api}
-            sessionId={input.session_id}
-          />
-        )
+  if (sidebar) {
+    const TITLE_MAX = 36
+
+    api.slots.register({
+      slots: {
+        sidebar_title(ctx, input) {
+          const title = input.title.length > TITLE_MAX
+            ? input.title.slice(0, TITLE_MAX - 1) + "\u2026"
+            : input.title
+
+          return (
+            <box flexDirection="row" alignItems="center" justifyContent="space-between" width="100%">
+              <box flexShrink={1} overflow="hidden">
+                <text fg={ctx.theme.current.text} bold>{title}</text>
+              </box>
+              <SidebarO theme={ctx.theme.current} api={api} sessionId={input.session_id} />
+            </box>
+          )
+        },
       },
-    },
-  })
+    })
+
+    api.slots.register({
+      order: 50,
+      slots: {
+        sidebar_content(ctx, input) {
+          return (
+            <CortanaContext
+              theme={ctx.theme.current}
+              api={api}
+              sessionId={input.session_id}
+            />
+          )
+        },
+      },
+    })
+  }
 
   api.lifecycle.onDispose(async () => {
     await api.plugins.activate("internal:sidebar-context")

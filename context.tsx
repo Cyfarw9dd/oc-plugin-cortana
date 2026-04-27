@@ -1,7 +1,7 @@
 // @ts-nocheck
 /** @jsxImportSource @opentui/solid */
 import type { TuiThemeCurrent, TuiPlugin } from "@opencode-ai/plugin/tui"
-import { createMemo, createSignal, Show } from "solid-js"
+import { createMemo, createSignal, onCleanup, onMount, Show, For } from "solid-js"
 
 type Api = Parameters<TuiPlugin>[0]
 
@@ -110,6 +110,32 @@ export const CortanaContext = (props: {
   const ctxInfo = createMemo(() => `${fmt(data().contextUsed)} / ${fmt(data().contextLimit)} tokens`)
   const ctxPct = createMemo(() => ` ${pct(data().contextRatio)}`)
 
+  const [motionTick, setMotionTick] = createSignal(0)
+
+  onMount(() => {
+    const t = setInterval(() => setMotionTick((n) => n + 1), 5000)
+    onCleanup(() => clearInterval(t))
+  })
+
+  const motionFiles = createMemo(() => {
+    void motionTick()
+    return props.api.state.session.diff(props.sessionId)
+      .filter((f) => f.additions > 0 || f.deletions > 0)
+      .sort((a, b) => (b.additions + b.deletions) - (a.additions + a.deletions))
+      .slice(0, 5)
+  })
+
+  const shortFile = (path: string, max = 24): string => {
+    if (path.length <= max) return path
+    const parts = path.split("/")
+    if (parts.length === 1) return path.slice(0, max - 1) + "\u2026"
+    let result = parts[parts.length - 1]
+    for (let i = parts.length - 2; i >= 0 && (result.length + 2 + parts[i].length) <= max; i--) {
+      result = parts[i] + "/" + result
+    }
+    return result.length <= path.length ? "\u2026/" + result : result
+  }
+
   return (
     <Show when={data().hasData}>
       <box
@@ -121,20 +147,45 @@ export const CortanaContext = (props: {
         width="100%"
         flexDirection="column"
       >
-        <Show when={data().contextLimit > 0}>
-          <text>
-            <span style={{ fg: props.theme.textMuted }}>SHIELD </span>
-            <span style={{ fg: ctxColor() }}>
-              [{bar(data().contextRatio, fillWidth(barWidth(), "SHIELD ", ctxPct()))}]
-            </span>
-            <span style={{ fg: props.theme.text }}>{ctxPct()}</span>
-          </text>
-          <text fg={props.theme.textMuted}>{ctxInfo()}</text>
+        <Show when={data().contextLimit > 0 || data().totalCost > 0}>
+          <box flexDirection="column">
+            <Show when={data().contextLimit > 0}>
+              <text>
+                <span style={{ fg: props.theme.textMuted }}>SHIELD </span>
+                <span style={{ fg: ctxColor() }}>
+                  [{bar(data().contextRatio, fillWidth(barWidth(), "SHIELD ", ctxPct()))}]
+                </span>
+                <span style={{ fg: props.theme.text }}>{ctxPct()}</span>
+              </text>
+            </Show>
+            <text>
+              <span style={{ fg: props.theme.textMuted }}>COST   </span>
+              <span style={{ fg: props.theme.text }}>{fmtCaps(data().totalCost)}</span>
+            </text>
+          </box>
         </Show>
-        <text>
-          <span style={{ fg: props.theme.textMuted }}>COST   </span>
-          <span style={{ fg: props.theme.text }}>{fmtCaps(data().totalCost)}</span>
-        </text>
+
+        <Show
+          when={motionFiles().length > 0}
+          fallback={
+            <text fg={props.theme.textMuted}>NO SIGNALS</text>
+          }
+        >
+          <box paddingTop={1} flexDirection="column">
+            <text fg={props.theme.accent}>MOTION TRACKER</text>
+            <For each={motionFiles()}>
+              {(file) => (
+                <box flexDirection="row" justifyContent="space-between" width="100%">
+                  <text fg={props.theme.text}>{shortFile(file.file)}</text>
+                  <text>
+                    <span style={{ fg: props.theme.success }}>+{file.additions}</span>
+                    <span style={{ fg: props.theme.error }}> -{file.deletions}</span>
+                  </text>
+                </box>
+              )}
+            </For>
+          </box>
+        </Show>
       </box>
     </Show>
   )

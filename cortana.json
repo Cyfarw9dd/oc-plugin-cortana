@@ -178,8 +178,8 @@
       "light": "purple"
     },
     "markdownStrong": {
-      "dark": "cortanaBright",
-      "light": "cortanaDark"
+      "dark": "orange",
+      "light": "orange"
     },
     "markdownHorizontalRule": {
       "dark": "cortanaBorder",
