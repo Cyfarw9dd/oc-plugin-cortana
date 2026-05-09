@@ -117,12 +117,26 @@ export const CortanaContext = (props: {
     onCleanup(() => clearInterval(t))
   })
 
-  const motionFiles = createMemo(() => {
+  const MOTION_PREVIEW = 5
+  const [motionExpanded, setMotionExpanded] = createSignal(false)
+
+  const motionAllFiles = createMemo(() => {
     void motionTick()
     return props.api.state.session.diff(props.sessionId)
       .filter((f) => f.additions > 0 || f.deletions > 0)
       .sort((a, b) => (b.additions + b.deletions) - (a.additions + a.deletions))
-      .slice(0, 5)
+  })
+
+  const motionFiles = createMemo(() => {
+    const all = motionAllFiles()
+    if (motionExpanded() || all.length <= MOTION_PREVIEW) return all
+    return all.slice(0, MOTION_PREVIEW)
+  })
+
+  const motionRemaining = createMemo(() => {
+    const total = motionAllFiles().length
+    const shown = motionFiles().length
+    return total - shown
   })
 
   const shortFile = (path: string, max = 24): string => {
@@ -166,7 +180,7 @@ export const CortanaContext = (props: {
         </Show>
 
         <Show
-          when={motionFiles().length > 0}
+          when={motionAllFiles().length > 0}
           fallback={
             <text fg={props.theme.textMuted}>NO SIGNALS</text>
           }
@@ -184,6 +198,16 @@ export const CortanaContext = (props: {
                 </box>
               )}
             </For>
+            <Show when={motionRemaining() > 0 || motionExpanded()}>
+              <text
+                fg={props.theme.textMuted}
+                onMouseDown={() => setMotionExpanded((v) => !v)}
+              >
+                {motionExpanded()
+                  ? "\u25B2 collapse"
+                  : `\u25BC \u2026and ${motionRemaining()} more`}
+              </text>
+            </Show>
           </box>
         </Show>
       </box>
